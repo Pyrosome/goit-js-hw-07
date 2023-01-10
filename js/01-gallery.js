@@ -1,5 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 
+// adding elements from items array to html
 const gallery = document.querySelector('.gallery');
 const markup = galleryItems.reduce(
   (acc, { preview, original, description }) =>
@@ -16,9 +17,9 @@ const markup = galleryItems.reduce(
       </div>`,
   ''
 );
-
 gallery.insertAdjacentHTML('beforeend', markup);
 
+// open loghtbox modal on click
 gallery.addEventListener('click', onClick);
 let instance;
 function onClick(evt) {
@@ -38,6 +39,7 @@ function onClick(evt) {
   return instance;
 }
 
+// close lightbox modal on esc
 gallery.addEventListener('keydown', onEsc);
 function onEsc(event) {
   if (instance.visible()) {
